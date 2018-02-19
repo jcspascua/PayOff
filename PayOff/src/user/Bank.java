@@ -6,6 +6,7 @@ public class Bank {
 	private String bankName = "";
 	private double bankBalance = 0;
 	private double bankAPR = 0;
+	private String bankDescription = "";
 	private static java.util.Scanner input;
 	
 	//constructor, three parameter for Bank object
@@ -14,14 +15,16 @@ public class Bank {
 		this.bankName = bankName;
 		this.bankBalance = bankBalance; 
 		this.bankAPR = bankAPR;
+		this.bankDescription = bankDescription;
 	}
 	
 	//constructor, three parameter for Bank object
-	public Bank (String bankName, double bankBalance, double bankAPR) 
+	public Bank (String bankName, double bankBalance, double bankAPR, String bankDescription) 
 	{
 		this.bankName = bankName;
 		this.bankBalance = bankBalance; 
 		this.bankAPR = bankAPR;
+		this.bankDescription = bankDescription;
 	}
 	
 	//setter methods
@@ -37,6 +40,10 @@ public class Bank {
 	{
 		this.bankAPR = bankAPR;
 	}
+	public void setBankDescription(String bankDescription) 
+	{
+		this.bankDescription = bankDescription;
+	}
 	
 	//getter methods
 	public String getBankName() 
@@ -51,6 +58,11 @@ public class Bank {
 	{
 		return this.bankAPR;
 	}
+	public String getBankDescription() 
+	{
+		return this.bankDescription;
+	}
+	
 	
 		
 	public static void main(String[] args) {
@@ -82,6 +94,11 @@ public class Bank {
 		System.out.println(bankAPRDouble);
 		bank.setBankAPR(bankAPRDouble);
 
+		//Prompt for bank Description
+		System.out.print("Enter bank Description: ");
+		String bankDescription = input.nextLine();
+		System.out.println(bankDescription);
+		bank.setBankDescription(bankDescription);
 	}
 
 }
