@@ -1,5 +1,7 @@
 package user;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Bank {
@@ -8,18 +10,15 @@ public class Bank {
 	private double bankAPR = 0;
 	private String bankDescription = "";
 	private static java.util.Scanner input;
+	private java.io.PrintWriter output;
 	
-	//constructor, three parameter for Bank object
-	public Bank () 
-	{
-		this.bankName = bankName;
-		this.bankBalance = bankBalance; 
-		this.bankAPR = bankAPR;
-		this.bankDescription = bankDescription;
+	//constructor, no parameter for Bank object
+	public Bank() {
+		
 	}
 	
 	//constructor, three parameter for Bank object
-	public Bank (String bankName, double bankBalance, double bankAPR, String bankDescription) 
+	public Bank(String bankName, double bankBalance, double bankAPR, String bankDescription) 
 	{
 		this.bankName = bankName;
 		this.bankBalance = bankBalance; 
@@ -63,29 +62,35 @@ public class Bank {
 		return this.bankDescription;
 	}
 	
+	//write file
 	
-		
-	public static void main(String[] args) {
-//		// Testing
-//		Bank chase = new Bank("Chase", 6000, 0.1699);
-//		System.out.println(chase.getBankName());
-//		System.out.println(chase.getBankBalance());
-//		System.out.println(chase.getBankAPR());		
+	public void writeFile(Bank bank) throws IOException {
+		File file = new File(this.bankName + ".txt");
+		file.createNewFile();
+		output = new java.io.PrintWriter(file);
+		output.println(this.bankName);
+		output.println(this.bankBalance);
+		output.println(this.bankAPR);
+		output.println(this.bankDescription);
+		output.close(); //always required
+	}
+			
+	public static void main(String[] args) throws IOException {
 		Bank bank = new Bank();
-		
 		//Prompt for bank name
 		System.out.print("Enter bank name: ");
 		input = new Scanner(System.in);
 		String bankName = input.nextLine();
-		System.out.println(bankName);
 		bank.setBankName(bankName);
+		System.out.println(bankName);
+
 		
 		//Prompt for bank balance
 		System.out.print("Enter bank balance: ");
 		String bankBalance = input.nextLine();
 		int bankBalanceInt = Integer.parseInt(bankBalance);
-		System.out.println(bankBalanceInt);
 		bank.setBankBalance((double) bankBalanceInt);
+		System.out.println(bankBalance);
 		
 		//Prompt for bank APR
 		System.out.print("Enter bank APR: ");
@@ -99,6 +104,13 @@ public class Bank {
 		String bankDescription = input.nextLine();
 		System.out.println(bankDescription);
 		bank.setBankDescription(bankDescription);
+		
+		System.out.println(bank.bankName);
+		System.out.println(bank.bankBalance);
+		System.out.println(bank.bankAPR);
+		System.out.println(bank.bankDescription);
+
+		bank.writeFile(bank);
 	}
 
 }
