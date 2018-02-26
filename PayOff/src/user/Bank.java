@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Bank {
 	private String bankName = "";
 	private double bankBalance = 0;
-	private double bankAPR = 0;
+	protected double bankAPR = 0;
 	private String bankDescription = "";
 	private static java.util.Scanner input;
 	private java.io.PrintWriter output;
