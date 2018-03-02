@@ -1,4 +1,7 @@
 package user;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javafx.application.*;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -30,6 +33,42 @@ public class GUI extends Application {
 		Button btNext = new Button("Next");
 		btNext.setStyle("-fx-border-color: #3472d8; -fx-background-color: #3472d8; -fx-text-fill: white");
 
+		//
+		btNext.setOnAction(e -> {
+			User user = new User();
+			user.setUserNameFirst(tfFirstName.getText());
+			user.setUserNameLast(tfLastName.getText());
+			createUserFile(user);
+			/*
+			 * this is a stub that I will use if my current way does not work
+			 */
+//			//create file
+//			User user = new User();
+//			user.setUserNameFirst(tfFirstName.getText());
+//			user.setUserNameLast(tfLastName.getText());
+//			user.setUserNameTotal();
+//			java.io.File file = new java.io.File("User-"+ user.getUserNameTotal() + ".txt");
+//			try {
+//				file.createNewFile();
+//			} catch (IOException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+//			// Create a file
+//			java.io.PrintWriter output;
+//			try {
+//				output = new java.io.PrintWriter(file);
+//				// Write formatted output to the file
+//				output.print(user.getUserNameFirst());
+//				output.println(user.getUserNameLast());
+//				// Close the file
+//				output.close();
+//			} catch (FileNotFoundException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+		});
+		
 		
 		//add labels and fields to pane
 		gPane.add(lbFirstName, 0, 0);
@@ -66,6 +105,30 @@ public class GUI extends Application {
 			getChildren().add(new Label(title)); 
 			setStyle("-fx-border-color: red"); 
 			setPadding(new Insets(11.5, 12.5, 13.5, 14.5));
+		}
+	}
+	
+	public void createUserFile(User user) {
+		user.setUserNameTotal();
+		java.io.File file = new java.io.File("User-"+ user.getUserNameTotal() + ".txt");
+		try {
+			file.createNewFile();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		// Create a file
+		java.io.PrintWriter output;
+		try {
+			output = new java.io.PrintWriter(file);
+			// Write formatted output to the file
+			output.print(user.getUserNameFirst() + "; ");
+			output.println(user.getUserNameLast());
+			// Close the file
+			output.close();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 	}
 
