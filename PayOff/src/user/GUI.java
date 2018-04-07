@@ -99,7 +99,6 @@ public class GUI extends Application {
 	}
 	
 	// Define a custom pane to hold a label in the center of the pane
-	
 	class CustomPane extends StackPane {
 		public CustomPane(String title) {
 			getChildren().add(new Label(title)); 

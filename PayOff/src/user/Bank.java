@@ -63,7 +63,6 @@ public class Bank {
 	}
 	
 	//write file
-	
 	public void writeFile(Bank bank) throws IOException {
 		File file = new File(this.bankName + ".txt");
 		file.createNewFile();
@@ -77,6 +76,7 @@ public class Bank {
 			
 	public static void main(String[] args) throws IOException {
 		Bank bank = new Bank();
+		
 		//Prompt for bank name
 		System.out.print("Enter bank name: ");
 		input = new Scanner(System.in);
@@ -84,7 +84,6 @@ public class Bank {
 		bank.setBankName(bankName);
 		System.out.println(bankName);
 
-		
 		//Prompt for bank balance
 		System.out.print("Enter bank balance: ");
 		String bankBalance = input.nextLine();
@@ -105,12 +104,13 @@ public class Bank {
 		System.out.println(bankDescription);
 		bank.setBankDescription(bankDescription);
 		
-		System.out.println(bank.bankName);
-		System.out.println(bank.bankBalance);
-		System.out.println(bank.bankAPR);
-		System.out.println(bank.bankDescription);
+		// Final command line description of bank, balance, apr, description
+//		System.out.println(bank.bankName);
+//		System.out.println(bank.bankBalance);
+//		System.out.println(bank.bankAPR);
+//		System.out.println(bank.bankDescription);
 
-		bank.writeFile(bank);
+		bank.writeFile(bank);;
 	}
 
 }

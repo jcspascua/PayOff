@@ -2,7 +2,7 @@ package user;
 
 public class User {
 	private String userNameFirst;
-	private String userNameMiddle;
+//	private String userNameMiddle;
 	private String userNameLast;
 	private String userNameTotal;
 	
@@ -32,11 +32,11 @@ public class User {
 	
 	
 	public static void main (String[] args) {
-		User user = new User();
-		user.setUserNameFirst("Juan");
-		user.setUserNameLast("Pascua");
-		user.setUserNameTotal();
-		System.out.println(user.getUserNameTotal());
+//		User user = new User();
+//		user.setUserNameFirst("Juan");
+//		user.setUserNameLast("Pascua");
+//		user.setUserNameTotal();
+//		System.out.println(user.getUserNameTotal());
 	}
 
 }
