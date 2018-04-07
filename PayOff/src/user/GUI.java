@@ -39,36 +39,9 @@ public class GUI extends Application {
 			user.setUserNameFirst(tfFirstName.getText());
 			user.setUserNameLast(tfLastName.getText());
 			createUserFile(user);
-			/*
-			 * this is a stub that I will use if my current way does not work
-			 */
-//			//create file
-//			User user = new User();
-//			user.setUserNameFirst(tfFirstName.getText());
-//			user.setUserNameLast(tfLastName.getText());
-//			user.setUserNameTotal();
-//			java.io.File file = new java.io.File("User-"+ user.getUserNameTotal() + ".txt");
-//			try {
-//				file.createNewFile();
-//			} catch (IOException e1) {
-//				// TODO Auto-generated catch block
-//				e1.printStackTrace();
-//			}
-//			// Create a file
-//			java.io.PrintWriter output;
-//			try {
-//				output = new java.io.PrintWriter(file);
-//				// Write formatted output to the file
-//				output.print(user.getUserNameFirst());
-//				output.println(user.getUserNameLast());
-//				// Close the file
-//				output.close();
-//			} catch (FileNotFoundException e1) {
-//				// TODO Auto-generated catch block
-//				e1.printStackTrace();
-//			}
+			EnterCardWindow win1 = new EnterCardWindow();
+			win1.start(new Stage());
 		});
-		
 		
 		//add labels and fields to pane
 		gPane.add(lbFirstName, 0, 0);

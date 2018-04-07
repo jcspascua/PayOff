@@ -62,16 +62,20 @@ public class Bank {
 		return this.bankDescription;
 	}
 	
-	//write file
+	//method writeFile(bank) writes file with bank object
 	public void writeFile(Bank bank) throws IOException {
-		File file = new File(this.bankName + ".txt");
-		file.createNewFile();
-		output = new java.io.PrintWriter(file);
-		output.println(this.bankName);
-		output.println(this.bankBalance);
-		output.println(this.bankAPR);
-		output.println(this.bankDescription);
-		output.close(); //always required
+		try {
+			File file = new File(this.bankName + ".txt");
+			file.createNewFile();
+			output = new java.io.PrintWriter(file);
+			output.println(this.bankName);
+			output.println(this.bankBalance);
+			output.println(this.bankAPR);
+			output.println(this.bankDescription);
+			output.close(); //always required
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 	}
 			
 	public static void main(String[] args) throws IOException {
@@ -110,7 +114,11 @@ public class Bank {
 //		System.out.println(bank.bankAPR);
 //		System.out.println(bank.bankDescription);
 
-		bank.writeFile(bank);;
+		try {
+			bank.writeFile(bank);
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 	}
 
 }
