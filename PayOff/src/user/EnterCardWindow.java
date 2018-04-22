@@ -1,5 +1,7 @@
 package user;
 
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -41,6 +43,20 @@ public class EnterCardWindow extends Window {
 		//add to bPane
 		bPane.setCenter(gPane);
 		bPane.setBottom(btEnter);
+		
+		btEnter.setOnAction(e-> {
+			String bankName = tfBank.getText();
+			double bankBalance = Double.parseDouble(tfBalance.getText());
+			double bankAPR = Double.parseDouble(tfAPR.getText());
+			String bankDescription = tfDescription.getText();
+			Bank bank = new Bank(bankName, bankBalance, bankAPR, bankDescription);
+			try {
+				bank.writeFile(bank);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 		
 		Scene scene = new Scene(bPane);
 		primaryStage.setTitle("Enter Card Window!");
