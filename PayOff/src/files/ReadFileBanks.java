@@ -26,8 +26,5 @@ public class ReadFileBanks extends ReadFile {
 		System.out.println("The Bank Balance is: " + stringArray[1]);
 		System.out.println("The Bank Percentage is: " + stringArray[2]);
 		System.out.println("The Bank APR: " + stringArray[3]);
-
-
-
 	}// close main method
 }
